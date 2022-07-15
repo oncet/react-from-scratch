@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Header } from "./Hader";
+import { Header } from "./Header";
 import { Input } from "./Input";
 
 export const App = () => {
