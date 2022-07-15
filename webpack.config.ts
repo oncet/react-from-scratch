@@ -10,7 +10,7 @@ const devMode = process.env.NODE_ENV !== "production";
 
 const plugins: webpack.Configuration["plugins"] = [
   new HtmlWebpackPlugin({
-    title: "Papago",
+    title: "My app",
     template: "public/index.html",
   }),
 ];
