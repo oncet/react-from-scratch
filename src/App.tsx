@@ -1,14 +1,17 @@
 import { Outlet } from "react-router-dom";
+import { Header } from "./Hader";
+import { Input } from "./Input";
 
 export const App = () => {
   return (
     <>
-      <h1>This is the app!!!</h1>
+      <Header />
+      <Input />
       <Outlet />
     </>
   );
 };
 
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }

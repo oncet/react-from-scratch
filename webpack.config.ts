@@ -53,6 +53,7 @@ const config: webpack.Configuration = {
               [
                 "@babel/preset-react",
                 {
+                  development: devMode,
                   runtime: "automatic",
                 },
               ],
