@@ -11,7 +11,3 @@ export const App = () => {
     </>
   );
 };
-
-// if (module.hot) {
-//   module.hot.accept();
-// }
