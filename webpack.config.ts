@@ -2,6 +2,7 @@ import path from "path";
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 import "webpack-dev-server";
 
@@ -14,17 +15,22 @@ const plugins: webpack.Configuration["plugins"] = [
   }),
 ];
 
+if (devMode) {
+  plugins.concat([new ReactRefreshPlugin()]);
+}
+
 if (!devMode) {
   plugins.concat([new MiniCssExtractPlugin()]);
 }
 
 const config: webpack.Configuration = {
-  mode: "development",
+  mode: devMode ? "development" : "production",
   entry: "./src/index.tsx",
   devtool: "inline-source-map",
   devServer: {
     static: "./dist",
     historyApiFallback: true,
+    hot: true,
   },
   plugins,
   output: {
@@ -51,6 +57,9 @@ const config: webpack.Configuration = {
                 },
               ],
             ],
+            plugins: [devMode && require.resolve("react-refresh/babel")].filter(
+              Boolean
+            ),
           },
         },
       },
