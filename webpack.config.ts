@@ -35,10 +35,29 @@ const config: webpack.Configuration = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.tsx?$/,
+      //   use: "ts-loader",
+      //   exclude: /node_modules/,
+      // },
       {
         test: /\.tsx?$/,
-        use: "ts-loader",
         exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              ["@babel/preset-env", { targets: "defaults" }],
+              "@babel/preset-typescript",
+              [
+                "@babel/preset-react",
+                {
+                  runtime: "automatic",
+                },
+              ],
+            ],
+          },
+        },
       },
       {
         test: /\.html$/,
