@@ -1,4 +1,4 @@
-# pagogo-web-react-from-scratch
+# web-react-from-scratch
 
 Barebones template featuring:
 
